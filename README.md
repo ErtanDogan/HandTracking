@@ -38,7 +38,7 @@ After the server is running (if it is not on port 5000 of localhost, the Unity s
 
 The model is trained exclusively using images of my real-life right hand. This may lead to bias when classifying other people's hands, and possibly also in classifying left hands (but the simulation is a right hand anyways so this is technically a feature not a bug).
 
-For how I plan on improving the project, my idea would be to work on the accuracy of the model
+For how I plan on improving the project, my idea would be to work on the accuracy of the model in recognizing the user's hand position and shape, possibly by expanding the training data.
 
 ### ✍️ Authors
 
