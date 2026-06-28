@@ -14,7 +14,7 @@ ret, frame = cap.read()
 if ret:
     print("Camera is working.")
     
-model = YOLO("best.pt") # Match the path of the model weights (best.pt)
+model = YOLO("runs/detect/train-17/weights/best.pt")
 
 app = Flask(__name__)
 
@@ -29,11 +29,11 @@ def return_data():
         results = model(frame)
         if results[0].boxes.cls.shape[0] == 0:
             num_out = 0
+            return "0 0.5 0.5"
         else:
             num_out = int(results[0].boxes.cls[0].item())
-        print(results[0].boxes.cls)
-        #time.sleep(0.5)
-        return str(num_out)
+            x, y, w, h = results[0].boxes.xywh[0]
+            return f"{num_out} {x/640} {y/480}"
     return Response(predict(), mimetype='text/plain')
 
 app.run()
