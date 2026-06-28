@@ -14,7 +14,7 @@ ret, frame = cap.read()
 if ret:
     print("Camera is working.")
     
-model = YOLO("runs/detect/train-17/weights/best.pt")
+model = YOLO("best.pt") # Should point to the model weights
 
 app = Flask(__name__)
 
