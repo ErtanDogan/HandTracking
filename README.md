@@ -4,18 +4,18 @@
 
 ## 🌟 Highlights
 
-- A fine-tuned YOLO model that classifies your real-life hand in real time using your computer webcam
+- A fine-tuned YOLO model that recognizes and classifies your real-life hand in real time using your computer webcam
 - This is integrated into a Unity simulation, affecting objects in the simulation based on real-life hand movements
 
 ## ℹ️ Overview
 
 This project is an experiment with real-time computer vision and integrating that into a simulation environment. 
 
-The model is a fine-tuned YOLO-11 Nano, a powerful and compact computer vision model by Ultralytics built for object detection, classification, and image segmentation. It is fine-tuned to recognize a human hand in three "positions" - in a fist, in an open palm, and pointing.
+The model is a fine-tuned YOLO-11 Nano, a powerful and compact computer vision model by Ultralytics built for object detection, classification, and image segmentation. It is fine-tuned to recognize a human hand in three "positions" - in a fist, in an open palm, and pointing. The model also recognizes the position of the hand accurately, drawing a bounding box over only it.
 
 The program uses the OpenCV library to read from the user's computer webcam in real time which is then processed by the YOLO model to recognize the hand shape. The classified image is broadcasted using a Flask server running on the local machine.
 
-The simulation is created and run inside Unity. It is currently very simple, only containing a hand model that can be a fist, an open palm, or pointing. It reads data from the Flask server using Unity's Networking framework and updates the in-simulation hand accordingly in real time.
+The simulation is created and run inside Unity. The simulation includes a hand model that can change states depending on the user's real-life hand and can move depending on the position of the person's real-life hand, bound to the screen. The user can interact with objects in the environment - picking them up and moving them around - by opening and closing their hand to "pick up" and "drop" objects in the simulation. It reads data from the Flask server using Unity's Networking framework and updates the in-simulation hand accordingly in real time.
 
 ## 🚀 Usage
 
@@ -38,7 +38,7 @@ After the server is running (if it is not on port 5000 of localhost, the Unity s
 
 The model is trained exclusively using images of my real-life right hand. This may lead to bias when classifying other people's hands, and possibly also in classifying left hands (but the simulation is a right hand anyways so this is technically a feature not a bug).
 
-For how I plan on expanding the project, my immediate idea is to further train the YOLO model to more accurately track the hand's position, and reflect this in the Unity simulation. Then, I think it'd be cool to add interactive objects in the simulation that the user will be able to pick up, move, and drop using their real-life hand. 
+For how I plan on improving the project, my idea would be to work on the accuracy of the model
 
 ### ✍️ Authors
 
